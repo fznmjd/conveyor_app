@@ -450,10 +450,10 @@ class MainScreen extends StatelessWidget {
 
   Color getColorkec1(Datum datum) {
     // Mengatur warna berdasarkan nilai proxymiti1
-    if (datum.kec1 !> 499) {
+    if (datum.kec1 !> 0) {
       return Colors.black;
     } 
-    else if (datum.kec1 !< 499) {
+    else if (datum.kec1 == 0) {
       if (datum.startA != 0 || datum.startB !=0){
         return Colors.orange;  
       }
@@ -465,10 +465,10 @@ class MainScreen extends StatelessWidget {
   }
   Color getColorkec2(Datum datum) {
     // Mengatur warna berdasarkan nilai proxymiti1
-    if (datum.kec2 !> 499) {
+    if (datum.kec2 !> 0) {
       return Colors.black;
     } 
-    else if (datum.kec2 !< 499) {
+    else if (datum.kec2 == 0) {
       if (datum.startA != 0 || datum.startB !=0){
         return Colors.orange;  
       }

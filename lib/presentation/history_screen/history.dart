@@ -55,19 +55,19 @@ class _HistorySensorState extends State<HistorySensor> {
         text: "TRANSFER HISTORY",
         margin: EdgeInsets.only(left: 5.h),
       ),
-      // actions: [
-      //   Padding(
-      //     padding: const EdgeInsets.all(8.0),
-      //     child: CustomElevatedButton(
-      //       margin: EdgeInsets.only(right: 30.h),
-      //       height: 25.h,
-      //       width: 100.h,
-      //       text: "Download and Open",
-      //       alignment: Alignment.center,
-      //       onPressed: () => _exportToExcel(),
-      //     ),
-      //   ),
-      // ],
+      actions: [
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: CustomElevatedButton(
+            margin: EdgeInsets.only(right: 30.h),
+            height: 25.h,
+            width: 100.h,
+            text: "Download and Open",
+            alignment: Alignment.center,
+            onPressed: () => _exportToExcel(),
+          ),
+        ),
+      ],
       backgroundColor: Colors.teal, // Customize as needed
     );
   }
@@ -320,30 +320,34 @@ class SensorDataSource extends DataTableSource {
     final cells = [
       DataCell(Container(
         width: 50, // Set the width you want
-        child: Center(child: Text(DateFormat('dd MMMM yyyy').format(datum.waktu.toLocal()), style: TextStyle(color: Colors.black), textAlign: TextAlign.center)),
+        child: Center(child: Text(DateFormat('dd MMMM yyyy').format(datum.waktu.toLocal()), style: TextStyle(color: 
+        (datum.stat == 1 ? Colors.green : datum.stat == 7 ? Colors.red : datum.stat == 2 ? Colors.orangeAccent : datum.stat == 3 ? Colors.orangeAccent : Colors.orange)
+        ), textAlign: TextAlign.center)),
       )),
       DataCell(Container(
         width: 55, // Set the width you want
-        child: Center(child: Text(DateFormat('HH:mm:ss').format(datum.waktu.toLocal()), style: TextStyle(color: Colors.black), textAlign: TextAlign.center)),
+        child: Center(child: Text(DateFormat('HH:mm:ss').format(datum.waktu.toLocal()), style: TextStyle(color: 
+        (datum.stat == 1 ? Colors.green : datum.stat == 7 ? Colors.red : datum.stat == 2 ? Colors.orangeAccent : datum.stat == 3 ? Colors.orangeAccent : Colors.orange)
+        ), textAlign: TextAlign.center)),
       )),
       DataCell(Container(
         width: 105, // Set the width you want
         child: Center(child: Text(datum.stat == 7 ? "See On The Next Data" : datum.dur.toString(), style: TextStyle(color: 
-        (datum.dur! > 5 ? Colors.orange : datum.dur! > 10 ? Colors.red : datum.stat == 7 ? Colors.red : Colors.green)
+        (datum.stat == 1 ? Colors.green : datum.stat == 7 ? Colors.red : datum.stat == 2 ? Colors.orangeAccent : datum.stat == 3 ? Colors.orangeAccent : Colors.orange)
         //Colors.black
         ), textAlign: TextAlign.center)),
       )),
       DataCell(Container(
         width: 135, // Set the width you want
         child: Center(child: Text(datum.konv1.toString(), style: TextStyle(color: 
-        (datum.konv1! < 500 ? Colors.orange : Colors.green)
+        (datum.stat == 1 ? Colors.green : datum.stat == 7 ? Colors.red : datum.stat == 2 ? Colors.orangeAccent : datum.stat == 3 ? Colors.orangeAccent : Colors.orange)
         //Colors.black
         ), textAlign: TextAlign.center)),
       )),
       DataCell(Container(
         width: 135, // Set the width you want
         child: Center(child: Text(datum.konv2.toString(), style: TextStyle(color: 
-        (datum.konv2! < 500 ? Colors.orange : Colors.green)
+        (datum.stat == 1 ? Colors.green : datum.stat == 7 ? Colors.red : datum.stat == 2 ? Colors.orangeAccent : datum.stat == 3 ? Colors.orangeAccent : Colors.orange)
         //Colors.black
         ), textAlign: TextAlign.center)),
       )),
