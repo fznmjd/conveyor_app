@@ -5,7 +5,7 @@
 
 import 'package:conveyor_app/routes/route_name.dart';
 import 'package:get/get.dart';
-import 'package:awesome_notifications/awesome_notifications.dart';
+//import 'package:awesome_notifications/awesome_notifications.dart';
 
 import 'package:flutter/material.dart';
 //import 'package:flutter_svg_provider/flutter_svg_provider.dart' as fs;
